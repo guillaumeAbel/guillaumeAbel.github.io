@@ -214,6 +214,39 @@
             border-radius: 2px;
         }
 
+        /* Projects */
+        #projects { background: var(--bg-alt); }
+        #projects .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        #projects .project-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
+        #projects .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .project-actions .btn {
+            line-height: 1.2;
+            padding: 0 0.75rem;
+            border-radius: 10px;
+        }
+
         /* Skills Section */
         #skills {
             background: var(--bg);
@@ -483,7 +516,7 @@
             border-radius: 50px;
             text-decoration: none;
             color: var(--text);
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             border: 1px solid var(--border);
             cursor: pointer;
@@ -583,6 +616,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#languages">Languages</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -664,16 +698,6 @@
                         <div class="experience-header">
                             <div>
                                 <h3 class="experience-title">Developer</h3>
-                                <p class="experience-company">Bashroom</p>
-                            </div>
-                            <span class="experience-date">February 2024 – April 2024</span>
-                        </div>
-                        <p class="experience-description">Benchmark of Rust compiled into WebAssembly, compared to JavaScript.</p>
-                    </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <h3 class="experience-title">Developer</h3>
                                 <p class="experience-company">ISEE-U</p>
                             </div>
                             <span class="experience-date">July 2022 – December 2022</span>
@@ -691,6 +715,58 @@
                             <span class="experience-date">January 2024 (1 month)</span>
                         </div>
                         <p class="experience-description">Supervision of students and implementation of the Epitech teaching methodology during an intensive learning period in C++ and Haskell.</p>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Developer</h3>
+                                <p class="experience-company">Bashroom</p>
+                            </div>
+                            <span class="experience-date">February 2024 – April 2024</span>
+                        </div>
+                        <p class="experience-description">Benchmark of Rust compiled into WebAssembly, compared to JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-list">
+                    <!-- Add your projects here -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">Arcade</h3>
+                            <div class="project-actions" style="display: flex; gap: 0.5rem;">
+                                <a href="https://github.com/X-R-G-B/Arcade" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Project</a>
+                                <a href="https://github.com/ARCADE-TEK-2026/archi_arcade" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Architecture</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Developed multiple games with a graphics rendering library that can be switched at runtime. While playing, the backend can be switched between SFML, SDL2, or ncurses. The architecture is also compatible with other groups’ game engines and games, and our team led the coordination between groups to define the best architecture.</p>
+                        <div class="project-meta">
+                            <span class="project-tag"><strong>C++</strong></span>
+                            <span class="project-separator">•</span>
+                            <span class="project-tag"><strong>GAME ENGINE</strong></span>
+                            <span class="project-separator">•</span>
+                            <span class="project-tag"><strong>Architecture</strong></span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3 class="project-title">FBTTF</h3>
+                            <div class="project-actions">
+                                <a href="https://github.com/X-R-G-B/FlashBackToTheFuture" class="btn btn-primary" target="_blank" rel="noopener noreferrer">See</a>
+                            </div>
+                        </div>
+                        <p class="project-description">RPG game coded in C with our own game engine, also developed in C using the CSFML library.</p>
+                        <div class="project-meta">
+                            <span class="project-tag"><strong>C</strong></span>
+                            <span class="project-separator">•</span>
+                            <span class="project-tag"><strong>GAME ENGINE</strong></span>
+                            <span class="project-separator">•</span>
+                            <span class="project-tag"><strong>RPG</strong></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -825,7 +901,7 @@
         }, observerOptions);
 
         // Observe skill cards and experience items
-        document.querySelectorAll('.skills-section, .experience-item, .education-card, .language-item').forEach(el => {
+        document.querySelectorAll('.skills-section, .experience-item, .education-card, .language-item, .project-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
